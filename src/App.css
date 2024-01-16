@@ -36,6 +36,7 @@
   border-radius: 0.5em;
   transition: filter 0.2s, transform 0.3s;
   cursor: pointer;
+  z-index: 1;
 }
 
 .app__button:hover {
