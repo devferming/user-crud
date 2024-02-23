@@ -6,7 +6,8 @@ const useFetch = ( {baseUrl,
   setComment,
   userDelete,
   setUserDelete,
-  setFormClose}) => {
+  setFormClose,
+  setUserUpdate}) => {
 
   const [response, setResponde] = useState()
 
@@ -30,11 +31,12 @@ const useFetch = ( {baseUrl,
       setComment(`${data.first_name} ${data.last_name} user created successfully`)
       setModalClose(false)
 
+      setResponde([...response, res.data])
+
       setTimeout(() => {
           setModalClose(true);
           setComment()
-          setResponde([...response, res.data])
-      }, 3000);
+      }, 2000);
 
     })
     .catch(err => console.log(err))
@@ -50,12 +52,13 @@ const useFetch = ( {baseUrl,
       setComment(`User ${userDelete.first_name} ${userDelete.last_name} successfully deleted`)
       setModalClose(false)
 
+      setResponde(response.filter(user => user.id !== id))
+
       setTimeout(() => {
           setModalClose(true);
           setComment()
           setUserDelete()
-          setResponde(response.filter(user => user.id !== id))
-      }, 3000);
+      }, 2000);
 
     })
     .catch(err => console.log(err))
@@ -72,11 +75,12 @@ const useFetch = ( {baseUrl,
       setComment(`${data.first_name} ${data.last_name} user updated successfully`)
       setModalClose(false)
 
+      setResponde(response.map(user => user.id === id ? res.data[1][0] : user))
+      setUserUpdate()
       setTimeout(() => {
           setModalClose(true);
           setComment()
-          setResponde(response.map(user => user.id === id ? res.data : user))
-      }, 3000);
+      }, 2000);
 
     })
     .catch(err => console.log(err))

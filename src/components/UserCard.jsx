@@ -13,12 +13,11 @@ const UserCard = ( { user, setUserUpdate, setFormClose, setAlertClose, setUserDe
     setFormClose(false)
   }
 
-
   return (
     <article className="usercard">
       <h2 className="usercard__h2">{user.first_name} {user.last_name}</h2>
       <div className='usercard__div__img'>
-        <img className='usercard__img' src={user.image_url} alt="" />
+        <img className='usercard__img' src={user.image_url ? user.image_url : 'https://t3.ftcdn.net/jpg/03/46/83/96/360_F_346839683_6nAPzbhpSkIpb8pmAwufkC7c5eD7wYws.webp'} alt="" />
       </div>
       <ul className="usercard__ul">
         <li className="usercard__li">

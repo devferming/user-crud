@@ -15,18 +15,18 @@ const FormUser = ({ createUser, userUpdate, updateUser, setUserUpdate, setFormCl
 
     if (userUpdate) {
       updateUser(userUpdate.id, data)
-      //setUserUpdate()
     } else {
       createUser(data)
-      reset({
-        email: '',
-        password: '',
-        first_name: '',
-        last_name: '',
-        birthday: '',
-        image_url: ''
-      })
     }
+
+    reset({
+      email: '',
+      password: '',
+      first_name: '',
+      last_name: '',
+      birthday: '',
+      image_url: ''
+    })
 
     //setFormClose(true)
   }

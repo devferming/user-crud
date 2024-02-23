@@ -15,7 +15,7 @@ function App() {
   const [comment, setComment] = useState()
   const [modalClose, setModalClose] = useState(true)
 
-  const baseUrl = 'https://users-crud.academlo.tech'
+  const baseUrl = 'https://user-crud-api-g0rj.onrender.com'
 
   const [ users, createUser, getUsers, updateUser, deleteUser ] = useFetch({
     baseUrl,
@@ -23,7 +23,8 @@ function App() {
     setComment,
     userDelete,
     setUserDelete,
-    setFormClose
+    setFormClose,
+    setUserUpdate
   })
 
   useEffect(() => {
